@@ -19,7 +19,7 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
+    // "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
@@ -36,7 +36,13 @@
       "routes/*": ["src/routes/*"],
       "routes": ["src/routes"],
       "urls/*": ["src/urls/*"],
-      "urls": ["src/urls"]
+      "urls": ["src/urls"],
+      "utils/*": ["src/utils/*"],
+      "utils": ["src/utils"],
+      "widgets/*": ["src/widgets/*"],
+      "widgets": ["src/widgets"],
+      "services/*": ["src/services/*"],
+      "services": ["src/services"]
     }
   },
   "include": ["src"]

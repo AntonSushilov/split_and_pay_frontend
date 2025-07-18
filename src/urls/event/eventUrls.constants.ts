@@ -1,0 +1,1 @@
+export const EVENT_ROOT_PATH = '/event';
