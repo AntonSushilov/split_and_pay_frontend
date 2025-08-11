@@ -4,6 +4,7 @@ import path from "path";
 
 
 export default defineConfig({
+  base: "/split_and_pay_frontend/",
   plugins: [react()],
   resolve: {
     alias: {
