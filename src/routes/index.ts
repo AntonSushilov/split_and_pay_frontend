@@ -1,1 +1,1 @@
-export {router} from "./routes";
+export {router, HashRoutes} from "./routes";

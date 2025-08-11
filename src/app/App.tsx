@@ -1,12 +1,14 @@
 import "@ant-design/v5-patch-for-react-19";
 import { store } from "app";
 import { Provider } from "react-redux";
-import { RouterProvider } from "react-router-dom";
-import { router } from "routes/routes";
+import { HashRouter } from "react-router";
+// import { RouterProvider } from "react-router-dom";
+// import { router } from "routes/routes";
 
 import "./App.css";
 import { useCallback, useEffect, useState } from "react";
 import { ConfigProvider, Space, theme } from "antd";
+import { HashRoutes } from "routes/routes";
 
 export const App = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -29,16 +31,19 @@ export const App = () => {
     setDarkMode(windowQuery.matches ? true : false);
   }, []);
   return (
-    <Provider store={store}>
-      <ConfigProvider
-        theme={{
-          algorithm: darkMode ? theme.darkAlgorithm : theme.compactAlgorithm,
-        }}
-      >
-        <Space>
-          <RouterProvider router={router} />
-        </Space>
-      </ConfigProvider>
-    </Provider>
+    <HashRouter>
+      <Provider store={store}>
+        <ConfigProvider
+          theme={{
+            algorithm: darkMode ? theme.darkAlgorithm : theme.compactAlgorithm,
+          }}
+        >
+          <Space>
+            <HashRoutes />
+            {/* <RouterProvider router={router} /> */}
+          </Space>
+        </ConfigProvider>
+      </Provider>
+    </HashRouter>
   );
 };
