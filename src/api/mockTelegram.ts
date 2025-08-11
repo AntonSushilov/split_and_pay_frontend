@@ -1,4 +1,3 @@
-// @ts-ignore
 import telegramWebappData from "./telegram_webapp_data.json"
 
 export const mockTelegram = {
