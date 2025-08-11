@@ -22,7 +22,7 @@ async function checkUserAuth(tg: TelegramWebApp): Promise<AuthResponse> {
       },
       body: JSON.stringify({ initData: tg.initData }),
     };
-    const response = requestApi('/auth', requestOptions).then(res => {
+    const response = requestApi('/users/auth', requestOptions).then(res => {
         return res as AuthResponse;
     })
 
