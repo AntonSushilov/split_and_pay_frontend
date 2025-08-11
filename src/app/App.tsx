@@ -6,7 +6,7 @@ import { router } from "routes/routes";
 
 import "./App.css";
 import { useCallback, useEffect, useState } from "react";
-import { Button, ConfigProvider, Input, Space, theme } from "antd";
+import { ConfigProvider, Space, theme } from "antd";
 
 export const App = () => {
   const [darkMode, setDarkMode] = useState(false);

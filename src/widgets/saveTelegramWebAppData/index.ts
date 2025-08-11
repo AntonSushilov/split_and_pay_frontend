@@ -1,0 +1,1 @@
+export {SaveTelegramWebAppData} from "./SaveTelegramWebAppData";

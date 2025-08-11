@@ -1,15 +1,9 @@
 import { useAppDispatch } from "hooks";
-import {
-  useCallback,
-  useEffect,
-  useState,
-  type MouseEventHandler,
-} from "react";
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 
 import { Button, Form, Modal, Input } from "antd";
 
-import styles from "./eventPage.module.css";
 import type { EventItemDto } from "api/event";
 import { eventActions } from "services/event/";
 import { useSelector } from "react-redux";
@@ -37,7 +31,10 @@ export const EventPage = () => {
     }
 
     dispatch(
-      eventActions.createEventItemRequest({ ...values, user_id: user.id } as EventItemDto)
+      eventActions.createEventItemRequest({
+        ...values,
+        user_id: user.id,
+      } as EventItemDto)
     );
     setIsModalOpen(false);
   };
