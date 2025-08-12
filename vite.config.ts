@@ -27,9 +27,9 @@ export default defineConfig({
     cors: true, // ✅ Нужно для API-запросов
     allowedHosts: true, // ✅ Разрешаем все хосты и наш поддомен
     // allowedHosts: ['splitandpay.loca.lt'],
-    hmr: {
-      protocol: "wss",
-      host: 'splitandpay.loca.lt', // ✅ твой поддомен
-    },
+    // hmr: {
+    //   protocol: "wss",
+    //   host: 'splitandpay.loca.lt', // ✅ твой поддомен
+    // },
   },
 });

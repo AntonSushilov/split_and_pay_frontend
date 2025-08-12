@@ -9,7 +9,7 @@ interface User {
 
 export interface AuthState {
   loading: boolean;
-  tg: TelegramWebApp | null;
+  telegramInitData: string| null;
   user: User | null;
   error: string | null;
 }

@@ -3,7 +3,7 @@ import { type AuthState } from "./user.interface";
 
 const initialState: AuthState = {
   loading: false,
-  tg: null,
+  telegramInitData: null,
   user: null,
   error: null,
 };
@@ -12,10 +12,10 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    checkAuthRequest(state, action: PayloadAction<TelegramWebApp>) {
+    checkAuthRequest(state, action: PayloadAction<string>) {
       state.loading = true;
       state.error = null;
-      state.tg = action.payload;
+      state.telegramInitData = action.payload;
     },
     checkAuthSuccess(state, action: PayloadAction<AuthState["user"]>) {
       state.loading = false;

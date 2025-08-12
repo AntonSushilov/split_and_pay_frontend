@@ -9,7 +9,7 @@ export const MainPage = () => {
   //   const state = useSelector((state: RootState) => state.userReducer);
   useEffect(() => {
     if (tg && initData) {
-      dispatch(userActions.checkAuthRequest(tg));
+      dispatch(userActions.checkAuthRequest(initData));
     }
   }, [tg, initData]);
 

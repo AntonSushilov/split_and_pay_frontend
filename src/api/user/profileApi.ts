@@ -1,18 +1,12 @@
 import { requestApi } from "api";
 import type { AuthResponse, Contact } from "./profileApi.interface";
 
-
-
 export const userApi = {
-  checkUserAuth: (tg: TelegramWebApp) => checkUserAuth(tg),
-  updatePhoneNumber: (contact: Contact) => updatePhoneNumber(contact)
-}
+  checkUserAuth: (telegramInitData: string) => checkUserAuth(telegramInitData),
+  updatePhoneNumber: (contact: Contact) => updatePhoneNumber(contact),
+};
 
-async function checkUserAuth(tg: TelegramWebApp): Promise<AuthResponse> {
-  if (!tg?.initData) {
-    return { ok: false, error: "Telegram initData is missing" };
-  }
-
+async function checkUserAuth(telegramInitData: string): Promise<AuthResponse> {
   try {
     const requestOptions = {
       method: "POST",
@@ -20,14 +14,13 @@ async function checkUserAuth(tg: TelegramWebApp): Promise<AuthResponse> {
         "Content-Type": "application/json",
         Authorization: `token ${String(localStorage.getItem("token"))}`,
       },
-      body: JSON.stringify({ initData: tg.initData }),
+      body: JSON.stringify({ initData: telegramInitData }),
     };
-    const response = requestApi('/users/auth', requestOptions).then(res => {
-        return res as AuthResponse;
-    })
+    const response = requestApi("/users/auth", requestOptions).then((res) => {
+      return res as AuthResponse;
+    });
 
     return response;
-
   } catch (err) {
     console.error("Auth request error:", err);
     return { ok: false, error: "Request failed" };
@@ -44,12 +37,13 @@ async function updatePhoneNumber(contact: Contact): Promise<AuthResponse> {
       },
       body: JSON.stringify({ contact: contact }),
     };
-    const response = requestApi('/auth/update-phone', requestOptions).then(res => {
+    const response = requestApi("/auth/update-phone", requestOptions).then(
+      (res) => {
         return res as AuthResponse;
-    })
+      }
+    );
 
     return response;
-
   } catch (err) {
     console.error("Auth request error:", err);
     return { ok: false, error: "Request failed" };
